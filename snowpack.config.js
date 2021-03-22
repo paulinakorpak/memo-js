@@ -1,5 +1,3 @@
-// Snowpack Configuration File
-// See all supported options: https://www.snowpack.dev/reference/configuration
 
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
@@ -13,7 +11,7 @@ module.exports = {
     target: 'es2018',
   },
   plugins: [
-    /* ... */
+    '@snowpack/plugin-sass',
   ],
   packageOptions: {
     /* ... */
