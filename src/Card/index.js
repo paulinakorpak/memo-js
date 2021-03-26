@@ -22,5 +22,9 @@ export const Card = (element, type) => {
     render();
   };
 
-  return { init, show, hide };
+  const getType = () => type;
+
+  return {
+    init, show, hide, getType,
+  };
 };
