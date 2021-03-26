@@ -2,6 +2,7 @@ import { shuffle } from './helper/shuffle';
 import { template } from './template';
 import { fruits } from './cards/fruits';
 import { Card } from '../Card';
+import { Timer } from '../Timer';
 
 export const Board = (element) => {
   const state = {
@@ -10,15 +11,23 @@ export const Board = (element) => {
   };
 
   let cards = [];
+  let timer = null;
 
   const init = (rows, cols) => {
+    const timerElement = element.querySelector('.timer');
+    timer = Timer(timerElement);
+    timer.init();
+
     renderBoard(rows, cols);
     cards = initCards(shuffleCardTypes());
   };
 
   const shuffleCardTypes = () => shuffle([...fruits, ...fruits]);
 
-  const renderBoard = (rows, cols) => element.innerHTML = template(rows, cols);
+  const renderBoard = (rows, cols) => {
+    const table = element.querySelector('table');
+    table.innerHTML = template(rows, cols);
+  };
 
   const initCards = (types) => {
     const fields = Array.from(element.querySelectorAll('td'));

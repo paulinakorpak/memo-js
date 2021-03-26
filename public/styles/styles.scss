@@ -6,6 +6,15 @@
     margin-bottom: 2rem;
   }
 
+  .stats {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    div {
+      width: 10rem;
+    }
+  }
+
   .board {
     width: 90%;
 
@@ -31,6 +40,10 @@
 }
 
 @media (min-width: 768px) {
+  .stats {
+      max-width: 50%;
+  }
+
   .board {
     max-width: 50%;
     max-height: 50%;
