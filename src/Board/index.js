@@ -5,7 +5,8 @@ import { Card } from '../Card';
 
 export const Board = (element) => {
   const state = {
-    selectedCard: null,
+    firstCard: null,
+    secondCard: null,
   };
 
   let cards = [];
@@ -35,19 +36,31 @@ export const Board = (element) => {
   };
 
   const handlePlay = async (e) => {
-    const { key } = e.target.dataset;
+    const { key } = e.currentTarget.dataset;
     const selectedCard = cards[key];
 
-    if (state.selectedCard === null) {
-      state.selectedCard = selectedCard;
+    const cardAlreadyVisible = selectedCard.isVisible();
+    const twoCardsVisible = state.firstCard !== null && state.secondCard !== null;
+
+    if (cardAlreadyVisible || twoCardsVisible) {
+      return;
+    }
+
+    selectedCard.show();
+
+    if (state.firstCard === null) {
+      state.firstCard = selectedCard;
     } else {
-      if (selectedCard.getType() !== state.selectedCard.getType()) {
+      state.secondCard = selectedCard;
+
+      if (state.firstCard.getType() !== state.secondCard.getType()) {
         await (new Promise((resolve) => setTimeout(resolve, 1000)));
-        selectedCard.hide();
-        state.selectedCard.hide();
+        state.firstCard.hide();
+        state.secondCard.hide();
       }
 
-      state.selectedCard = null;
+      state.firstCard = null;
+      state.secondCard = null;
     }
   };
 

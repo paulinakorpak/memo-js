@@ -7,7 +7,6 @@ export const Card = (element, type) => {
 
   const init = () => {
     render();
-    element.addEventListener('click', () => show());
   };
 
   const render = () => element.innerHTML = template(state.visibility, type);
@@ -24,7 +23,9 @@ export const Card = (element, type) => {
 
   const getType = () => type;
 
+  const isVisible = () => state.visibility;
+
   return {
-    init, show, hide, getType,
+    init, show, hide, getType, isVisible,
   };
 };
