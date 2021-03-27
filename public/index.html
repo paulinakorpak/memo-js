@@ -9,14 +9,15 @@
     <title>Memo JS</title>
 </head>
 <body>
-    <div class="app container-sm d-flex flex-column justify-content-center align-items-center">
+    <div class="app container-sm d-flex flex-column align-items-center">
         <h1 class="text-primary text-uppercase">Memo Game</h1>
-        <div class="board">
+        <div class="board d-flex flex-column">
             <div class="stats d-flex justify-content-between text-primary text-uppercase">
                 <div class="timer text-center border"></div>
                 <div class="counter text-center border"></div>
             </div>
             <table class="table table-bordered border-success"></table>
+            <div class="result d-none text-center text-info text-uppercase">Congratulations!</div>
         </div>
     </div>
 

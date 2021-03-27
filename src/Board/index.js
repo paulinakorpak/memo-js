@@ -5,7 +5,7 @@ import { Card } from '../Card';
 import { Timer } from '../Timer';
 import { Counter } from '../Counter';
 
-export const Board = (element) => {
+export const Board = (element, showResult) => {
   const state = {
     firstCard: null,
     secondCard: null,
@@ -63,6 +63,7 @@ export const Board = (element) => {
 
     selectedCard.show();
     counter.increment();
+    isCompleted();
 
     if (state.firstCard === null) {
       state.firstCard = selectedCard;
@@ -77,6 +78,17 @@ export const Board = (element) => {
 
       state.firstCard = null;
       state.secondCard = null;
+    }
+  };
+
+  const isCompleted = () => {
+    let allVisible = true;
+
+    cards.map((card) => allVisible = allVisible && card.isVisible());
+
+    if (allVisible) {
+      timer.stop();
+      showResult();
     }
   };
 

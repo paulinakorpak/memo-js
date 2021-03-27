@@ -5,17 +5,19 @@ export const Timer = (element) => {
     time: 0,
   };
 
+  let interval;
+
   const init = () => {
     render(0, 0);
-    countTime();
+    start();
   };
 
   const render = (minutes, seconds) => {
     element.innerHTML = template(minutes, seconds);
   };
 
-  const countTime = () => {
-    setInterval(
+  const start = () => {
+    interval = setInterval(
       () => {
         state.time++;
 
@@ -28,5 +30,9 @@ export const Timer = (element) => {
     );
   };
 
-  return { init };
+  const stop = () => {
+    clearInterval(interval);
+  };
+
+  return { init, stop };
 };
