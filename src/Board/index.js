@@ -3,6 +3,7 @@ import { template } from './template';
 import { fruits } from './cards/fruits';
 import { Card } from '../Card';
 import { Timer } from '../Timer';
+import { Counter } from '../Counter';
 
 export const Board = (element) => {
   const state = {
@@ -12,11 +13,16 @@ export const Board = (element) => {
 
   let cards = [];
   let timer = null;
+  let counter = null;
 
   const init = (rows, cols) => {
     const timerElement = element.querySelector('.timer');
     timer = Timer(timerElement);
     timer.init();
+
+    const counterElement = element.querySelector('.counter');
+    counter = Counter(counterElement);
+    counter.init();
 
     renderBoard(rows, cols);
     cards = initCards(shuffleCardTypes());
@@ -56,6 +62,7 @@ export const Board = (element) => {
     }
 
     selectedCard.show();
+    counter.increment();
 
     if (state.firstCard === null) {
       state.firstCard = selectedCard;
