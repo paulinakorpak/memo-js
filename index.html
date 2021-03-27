@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="styles/main.css" rel="stylesheet">
+    <title>Memo JS</title>
+</head>
+<body>
+    <div class="app container-sm d-flex flex-column align-items-center">
+        <h1 class="text-primary text-uppercase">Memo Game</h1>
+        <div class="board d-flex flex-column">
+            <div class="stats d-flex justify-content-between text-primary text-uppercase">
+                <div class="timer text-center border"></div>
+                <div class="counter text-center border"></div>
+            </div>
+            <table class="table table-bordered border-success"></table>
+            <div class="result d-none text-center text-info text-uppercase">Congratulations!</div>
+        </div>
+    </div>
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="module" src="dist/index.js"></script>
+
+</body></html>
