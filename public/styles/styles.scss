@@ -43,6 +43,16 @@
     .result {
       margin-top: 3rem;
       font-size: 1.5rem;
+
+      button {
+        width: 50%;
+        padding: 1rem;
+        margin-top: 5rem;
+
+        &:hover {
+          color: white;
+        }
+      }
     }
   }
 
